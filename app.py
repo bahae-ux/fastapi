@@ -31,7 +31,7 @@ def index():
         output.seek(0)
 
         # Envoyer le fichier Excel en réponse
-        return send_file(output, attachment_filename='data.xlsx', as_attachment=True)
+        return  mydf.to_html(classes='table table-bordered table-striped', index=False)# return send_file(output, attachment_filename='data.xlsx', as_attachment=True)
 
     return render_template('index.html')
  except Exception as me:
