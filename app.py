@@ -39,6 +39,8 @@ def index():
     '''
 
         return render_template_string(html)
+    else:
+        return render_template("index.html")
  except Exception as me:
      return str(me)
 @app.route('/download/<filename>')
