@@ -27,13 +27,13 @@ def index():
 
         # Convertir le DataFrame en fichier Excel
         excel_file_path = f'static/output{random.randint(500, 1000)}.xlsx'
-
+        mydf.to_excel(excel_file_path, index=False)
         download_link = f'/download/{os.path.basename(excel_file_path)}'
 
           # Render HTML with table and download button
         html = f'''
     <h1>Data Table</h1>
-    {df.to_html(classes='table table-bordered table-striped', index=False)}
+    {mydf.to_html(classes='table table-bordered table-striped', index=False)}
     <br>
     <a href="{download_link}" class="btn btn-primary">Download Excel</a>
     '''
