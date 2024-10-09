@@ -3,30 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <title>Formulaire Comtrade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <h1>Formulaire de recherche Comtrade</h1>
     <form method="post">
         <label for="type_code">Type Code:</label>
-        <input type="text" name="type_code" value="C" required><br>
+        <input type="text" name="type_code" value="C" required>
 
         <label for="freq_code">Frequency Code:</label>
-        <input type="text" name="freq_code" value="M" required><br>
+        <input type="text" name="freq_code" value="M" required>
 
         <label for="cl_code">Classification Code:</label>
-        <input type="text" name="cl_code" value="HS" required><br>
+        <input type="text" name="cl_code" value="HS" required>
 
         <label for="period">Period:</label>
-        <input type="text" name="period" value="202205" required><br>
+        <input type="text" name="period" value="202205" required>
 
         <label for="reporter_code">Reporter Code:</label>
-        <input type="text" name="reporter_code" value="36" required><br>
+        <input type="text" name="reporter_code" value="36" required>
 
         <label for="cmd_code">Commodity Code:</label>
-        <input type="text" name="cmd_code" value="91" required><br>
+        <input type="text" name="cmd_code" value="91" required>
 
         <label for="flow_code">Flow Code:</label>
-        <input type="text" name="flow_code" value="M" required><br>
+        <input type="text" name="flow_code" value="M" required>
 
         <input type="submit" value="Soumettre">
     </form>
