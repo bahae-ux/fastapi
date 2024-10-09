@@ -3,6 +3,7 @@ import pandas as pd
 import comtradeapicall
 import io
 import random
+import  os
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
