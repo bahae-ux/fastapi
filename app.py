@@ -1,8 +1,8 @@
-from flask import Flask, render_template, request, send_file
+from flask import Flask, render_template, request, send_file, render_template_string
 import pandas as pd
 import comtradeapicall
 import io
-
+import random
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
@@ -26,15 +26,24 @@ def index():
                                              countOnly=None, includeDesc=True)
 
         # Convertir le DataFrame en fichier Excel
-        output = io.BytesIO()
-        mydf.to_excel(output, index=False)
-        output.seek(0)
+        excel_file_path = f'static/output{random.randint(500, 1000)}.xlsx'
 
-        # Envoyer le fichier Excel en réponse
-        return  mydf.to_html(classes='table table-bordered table-striped', index=False)# return send_file(output, attachment_filename='data.xlsx', as_attachment=True)
+        download_link = f'/download/{os.path.basename(excel_file_path)}'
 
-    return render_template('index.html')
+          # Render HTML with table and download button
+        html = f'''
+    <h1>Data Table</h1>
+    {df.to_html(classes='table table-bordered table-striped', index=False)}
+    <br>
+    <a href="{download_link}" class="btn btn-primary">Download Excel</a>
+    '''
+
+        return render_template_string(html)
  except Exception as me:
      return str(me)
+@app.route('/download/<filename>')
+def download_file(filename):
+    file_path = os.path.join('static', filename)
+    return send_file(file_path, as_attachment=True)  
 if __name__ == '__main__':
     app.run(debug=True)
