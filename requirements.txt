@@ -1,2 +1,5 @@
 Flask
 Gunicorn
+pandas
+requests
+comtradeapicall
